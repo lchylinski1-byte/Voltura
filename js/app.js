@@ -1,22 +1,412 @@
-let cars=null;async function loadCars(){try{var e=await(await fetch("assets/car.json")).json();renderCars(cars=e.cars)}catch(e){console.error("Błąd podczas ładowania JSON:",e)}}loadCars();const filterSubmit=document.getElementById("filterSubmit"),carDetailsModal=document.getElementById("carDetailsModal"),modalTitle=carDetailsModal.querySelector(".modal-title"),modalPrice=carDetailsModal.querySelector("#modalPrice"),modalBody=carDetailsModal.querySelector(".modal-body"),modalCarVersion=carDetailsModal.querySelector("#version-group"),modalCarColor=carDetailsModal.querySelector("#color-group"),modalCarAccessories=carDetailsModal.querySelector("#accessories-group"),modalCarDesc=carDetailsModal.querySelector("#car-desc"),modalMainImg=carDetailsModal.querySelector(".modal-main-img"),modalThumbnailImg=carDetailsModal.querySelectorAll(".modal-thumbnail-img"),modalGallery=carDetailsModal.querySelector("#modalGallery"),modalPreviewRow=carDetailsModal.querySelector(".modal-preview-row"),modalFindDealer=carDetailsModal.querySelectorAll(".modalFindDealer");function formatPrice(e){return new Intl.NumberFormat("pl-PL",{style:"currency",currency:"PLN",minimumFractionDigits:0,maximumFractionDigits:0}).format(e)}function renderCars(e){const a=document.getElementById("carList");a.innerHTML="",e.length?e.forEach(e=>{a.innerHTML+=`
+let cars = [
+		{
+			"id": 1,
+			"model": "Voltura ZX 2025",
+			"price": "129999",
+			"range": "400",
+			"drive": "electric",
+			"type": "sedan",
+			"desc": [
+				{
+					"acceleration": "5.8s",
+					"top_speed": "210&nbsp;km/h",
+					"charging": "120 kW DC",
+					"boot_capacity": "520&nbsp;L",
+					"warranty": "5 lat"
+				}
+			],
+			"images": {
+				"main" : "car.png",
+				"additional" : [
+					"prev1.png",
+					"prev2.png",
+					"prev3.png"
+				]
+			},
+			"colors": [
+				{
+					"black": "#1F2937",
+					"gray": "#F3F4F6",
+					"green": "#28483B"
+				}
+			],
+			"version": [
+				"Podstawowy" ,
+				"Sport",
+				"Performance"
+			],
+			"accessories_available" : [
+				{
+					"winter_wheels" : "Koła zimowe",
+					"accessories" : "Akcesoria"        
+				}
+			]
+		},  
+		{
+			"id": 2,
+			"model": "Voltura PX 2025",
+			"price": "120999",
+			"range": "500",
+			"drive": "hybrid",
+			"type": "suv",
+			"desc": [
+				{
+					"acceleration": "6.8s",
+					"top_speed": "210&nbsp;km/h",
+					"charging": "100 kW DC",
+					"boot_capacity": "520&nbsp;L",
+					"warranty": "4 lat"
+				}
+			],
+			"images": {
+				"main" : "car.png",
+				"additional" : [
+					"prev1.png",
+					"prev2.png",
+					"prev3.png"
+				]
+			},
+			"colors": [
+				{
+					"black": "#1F2937",
+					"gray": "#F3F4F6",
+					"green": "#28483B"
+				}
+			],
+			"version": [
+				"Podstawowy",
+				"Sport",
+				"Performance"
+			],
+			"accessories_available" : [
+				{
+					"winter_wheels" : "Koła zimowe"      
+				}
+			]
+		},  
+		{
+			"id": 3,
+			"model": "Voltura SX 2025",
+			"price": "99999",
+			"range": "300",
+			"drive": "combustion",
+			"type": "kombi",
+			"desc": [
+				{
+					"acceleration": "10.8s",
+					"top_speed": "210&nbsp;km/h",
+					"charging": "190 kW DC",
+					"boot_capacity": "520&nbsp;L",
+					"warranty": "15 lat"
+				}
+			],
+			"images": {
+				"main" : "car.png",
+				"additional" : [
+					"prev1.png",
+					"prev2.png",
+					"prev3.png"
+				]
+			},
+			"colors": [
+				{
+					"black": "#1F2937",
+					"gray": "#F3F4F6",
+					"green": "#28483B"
+				}
+			],
+			"version": [
+				"Podstawowy",
+				"Sport",
+				"Performance"
+			],
+			"accessories_available" : [
+				{
+					"winter_wheels" : "Koła zimowe",
+					"accessories" : "Akcesoria"        
+				}
+			]
+		}
+	];
+
+// let cars = null;
+
+// async function loadCars() {
+//   try {
+//     const response = await fetch('assets/car.json');
+//     const data = await response.json();
+//     cars = data.cars;
+//     renderCars(cars);
+//   } catch (error) {
+//     console.error('Błąd podczas ładowania JSON:', error);
+//   }
+// }
+// loadCars();
+
+renderCars(cars);
+
+
+const filterSubmit = document.getElementById('filterSubmit');
+const carDetailsModal = document.getElementById('carDetailsModal');
+const modalTitle = carDetailsModal.querySelector('.modal-title');
+const modalPrice = carDetailsModal.querySelector('#modalPrice');
+const modalBody = carDetailsModal.querySelector('.modal-body');
+const modalCarVersion = carDetailsModal.querySelector('#version-group');
+const modalCarColor = carDetailsModal.querySelector('#color-group');
+const modalCarAccessories = carDetailsModal.querySelector('#accessories-group');
+const modalCarDesc = carDetailsModal.querySelector('#car-desc');
+const modalMainImg = carDetailsModal.querySelector('.modal-main-img');
+const modalThumbnailImg = carDetailsModal.querySelectorAll('.modal-thumbnail-img');
+const modalGallery = carDetailsModal.querySelector('#modalGallery');
+const modalPreviewRow = carDetailsModal.querySelector('.modal-preview-row');
+const modalFindDealer = carDetailsModal.querySelectorAll('.modalFindDealer');
+
+carDetailsModal.addEventListener('show.bs.modal', function(event) {
+
+	const button = event.relatedTarget;
+	const id = button.getAttribute('data-car-id');
+	const entry = cars.find(car => car.id == id);
+
+	modalTitle.textContent = entry.model+' — Szczegóły modelu';
+
+	if(carDetailsModal.querySelector('input[name="car_name"]')){
+		carDetailsModal.querySelector('input[name="car_name"]').value = entry.model;
+	} else {
+		const hiddenInput = document.createElement('input');
+		hiddenInput.type = 'hidden';
+		hiddenInput.name = 'car_name';
+		hiddenInput.value = entry.model;
+		modalBody.appendChild(hiddenInput);
+	}
+
+
+	modalGallery.querySelector('#modalMainImg').innerHTML = '';
+	modalGallery.querySelector('#modalMainImg').innerHTML += `<img src="assets/img/${entry.images.main}" class="modal-main-img img-fluid rounded-3 mb-3" alt="${entry.model}">`;
+
+	if(entry.images.additional.length){
+		modalGallery.querySelector('.modal-preview-row').innerHTML = ``;
+
+		let htmlThumbnail = '';
+		entry.images.additional.forEach(function(e){
+			htmlThumbnail += `<img src="assets/img/${e}" class="modal-thumbnail-img img-fluid rounded-2" alt="">`;
+		});
+		modalGallery.querySelector('.modal-preview-row').innerHTML = htmlThumbnail;
+	}
+
+	modalPrice.textContent = formatPrice(entry.price);
+	modalPrice.setAttribute('data-price', entry.price);
+
+// car version
+	if (entry.version.length) {
+	  let html = '';
+	  entry.version.forEach(name => {
+	    html += `<button type="button" data-value="${name}" class="btn btn-transparent me-2 rounded-3">${name}</button>`;
+	  });	
+	  modalCarVersion.querySelector('.btn-group').innerHTML = html;
+	} else {
+	  modalCarVersion.style.display = 'none';
+	}
+
+// car colors
+	const colorsObj = entry.colors[0];
+
+	if(Object.entries(colorsObj).length){
+		modalCarColor.querySelector('.btn-group').innerHTML = '';
+		Object.entries(colorsObj).forEach(([colorName, colorCode]) => {
+			const buttonHtml = `<button type="button" data-color-name="${colorName}" data-color-code="${colorCode}" class="btn btn-transparent modal-btn-color  rounded-3 color-box" style="background-color: ${colorCode}!important;"></button>`;
+			modalCarColor.querySelector('.btn-group').innerHTML += buttonHtml;
+		});
+
+	} else {
+		modalCarColor.style.display = 'none';	
+	}
+
+
+// car accessories
+
+	if (entry.accessories_available && Array.isArray(entry.accessories_available) && entry.accessories_available.length > 0) {
+		const accessories = entry.accessories_available[0];
+		carDetailsModal.querySelector('#accessories-group-row').innerHTML = '';
+		for (const [label,value] of Object.entries(accessories)) {
+			if (accessories.hasOwnProperty(label)) {
+
+
+				const html = `
+				<label class="btn btn-transparent w-50" for="${label}">
+				<input type="checkbox" class="btn-check hide" id="${label}" autocomplete="off">
+				${value}
+				</label>`;
+
+				carDetailsModal.querySelector('#accessories-group-row').innerHTML += html;
+			}
+		}
+	} else {
+		carDetailsModal.querySelector('#accessories-group').style.display = 'none';
+	}
+
+
+
+	modalCarAccessories.querySelectorAll('.btn-check').forEach(checkbox => {
+		checkbox.checked = false;
+	});
+
+// car desc
+	const descObj = entry.desc[0];
+
+	if(Object.entries(descObj).length){
+		modalCarDesc.innerHTML = '';
+
+		Object.entries(descObj).forEach(([label, value]) => {
+			let displayLabel = '';
+			if(label == 'acceleration') {
+				displayLabel = '0–100 km/h';
+
+			} else if(label == 'top_speed'){
+				displayLabel = 'Maksymalna prędkość';
+
+			} else if(label == 'charging'){
+				displayLabel = 'Ładowanie';
+
+			} else if(label == 'boot_capacity'){
+				displayLabel = 'Pojemność bagażnika';
+
+			} else if(label == 'warranty'){
+				displayLabel = 'Gwarancja';
+
+			}
+
+			const html = `<div class="row mb-2">
+			<p class="desc-label col-7 text-secondary">${displayLabel}</p>
+			<p class="desc-val col-5 text-end">${value}</p>
+			</div>`;
+
+			modalCarDesc.innerHTML += html;
+		});
+
+	} else {
+		modalCarDesc.style.display = 'none';	
+	}
+});
+
+carDetailsModal.querySelectorAll('.btn-group').forEach(group => {
+  group.addEventListener('click', (e) => {
+    const button = e.target.closest('button');
+    if (!button) return;
+    group.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+  });
+});
+
+
+modalPreviewRow.addEventListener('click', (e) => {
+	if (e.target && e.target.classList.contains('modal-thumbnail-img')) {
+		const thisElem = e.target;
+		const modalMainImgSrc = carDetailsModal.querySelector('.modal-main-img').src;
+
+		carDetailsModal.querySelector('.modal-main-img').src = e.target.src;
+		thisElem.src = modalMainImgSrc;
+		modalPreviewRow.appendChild(thisElem);
+
+	}
+});
+
+function formatPrice(price){
+
+	return  new Intl.NumberFormat('pl-PL', {
+		style: 'currency',
+		currency: 'PLN',
+		minimumFractionDigits: 0,
+		maximumFractionDigits: 0
+	}).format(price);
+}
+
+
+function renderCars(list) {
+	const carList = document.getElementById('carList');
+	carList.innerHTML = '';
+
+
+	if(list.length){
+		list.forEach(car => {
+			carList.innerHTML += `
 			<div class="col-md-4">
 			<div class="card">
 			<img src="assets/img/zx.png" class="card-img-top rounded-3 img-fluid" alt="Voltura ZX" style="display: block;">
 			<div class="card-body p-3 p-md-2 p-lg-3">
-			<p class="card__title">${e.model}</p>
-			<p class="card__price mb-2 lh-1">od ${formatPrice(e.price)}</p>
+			<p class="card__title">${car.model}</p>
+			<p class="card__price mb-2 lh-1">od ${formatPrice(car.price)}</p>
 			<div class="d-flex align-items-center justify-content-between">
-			<p class="card__desc lh-1">AWD &bullet; ${e.range} km range</p>
-			<button class="card__btn btn btn-blue px-3 py-1 rounded-4 fw-bold" data-bs-toggle="modal" data-bs-target="#carDetailsModal" data-car-id="${e.id}">Sprawdź</button>	  					
+			<p class="card__desc lh-1">AWD &bullet; ${car.range} km range</p>
+			<button class="card__btn btn btn-blue px-3 py-1 rounded-4 fw-bold" data-bs-toggle="modal" data-bs-target="#carDetailsModal" data-car-id="${car.id}">Sprawdź</button>	  					
 			</div>
 			</div>
 			</div>
 			</div>
-			`}):a.innerHTML+='<p class="fs-5 fw-bold text-center">Brak wyników</p>'}carDetailsModal.addEventListener("show.bs.modal",function(e){const a=e.relatedTarget.getAttribute("data-car-id");e=cars.find(e=>e.id==a);if(modalTitle.textContent=e.model+" — Szczegóły modelu",carDetailsModal.querySelector('input[name="car_name"]')?carDetailsModal.querySelector('input[name="car_name"]').value=e.model:((r=document.createElement("input")).type="hidden",r.name="car_name",r.value=e.model,modalBody.appendChild(r)),modalGallery.querySelector("#modalMainImg").innerHTML="",modalGallery.querySelector("#modalMainImg").innerHTML+=`<img src="assets/img/${e.images.main}" class="modal-main-img img-fluid rounded-3 mb-3" alt="${e.model}">`,e.images.additional.length){let a=modalGallery.querySelector(".modal-preview-row").innerHTML="";e.images.additional.forEach(function(e){a+=`<img src="assets/img/${e}" class="modal-thumbnail-img img-fluid rounded-2" alt="">`}),modalGallery.querySelector(".modal-preview-row").innerHTML=a}if(modalPrice.textContent=formatPrice(e.price),modalPrice.setAttribute("data-price",e.price),e.version.length){let a="";e.version.forEach(e=>{a+=`<button type="button" data-value="${e}" class="btn btn-transparent me-2 rounded-3">${e}</button>`}),modalCarVersion.querySelector(".btn-group").innerHTML=a}else modalCarVersion.style.display="none";var r=e.colors[0];if(Object.entries(r).length?(modalCarColor.querySelector(".btn-group").innerHTML="",Object.entries(r).forEach(([e,a])=>{e=`<button type="button" data-color-name="${e}" data-color-code="${a}" class="btn btn-transparent modal-btn-color  rounded-3 color-box" style="background-color: ${a}!important;"></button>`;modalCarColor.querySelector(".btn-group").innerHTML+=e})):modalCarColor.style.display="none",e.accessories_available&&Array.isArray(e.accessories_available)&&0<e.accessories_available.length){var l,t,o,c=e.accessories_available[0];carDetailsModal.querySelector("#accessories-group-row").innerHTML="";for([l,t]of Object.entries(c))c.hasOwnProperty(l)&&(o=`
-				<label class="btn btn-transparent w-50" for="${l}">
-				<input type="checkbox" class="btn-check hide" id="${l}" autocomplete="off">
-				${t}
-				</label>`,carDetailsModal.querySelector("#accessories-group-row").innerHTML+=o)}else carDetailsModal.querySelector("#accessories-group").style.display="none";modalCarAccessories.querySelectorAll(".btn-check").forEach(e=>{e.checked=!1});r=e.desc[0];Object.entries(r).length?(modalCarDesc.innerHTML="",Object.entries(r).forEach(([e,a])=>{let r="";"acceleration"==e?r="0–100 km/h":"top_speed"==e?r="Maksymalna prędkość":"charging"==e?r="Ładowanie":"boot_capacity"==e?r="Pojemność bagażnika":"warranty"==e&&(r="Gwarancja");e=`<div class="row mb-2">
-			<p class="desc-label col-7 text-secondary">${r}</p>
-			<p class="desc-val col-5 text-end">${a}</p>
-			</div>`;modalCarDesc.innerHTML+=e})):modalCarDesc.style.display="none"}),carDetailsModal.querySelectorAll(".btn-group").forEach(a=>{a.addEventListener("click",e=>{e=e.target.closest("button");e&&(a.querySelectorAll("button").forEach(e=>e.classList.remove("active")),e.classList.add("active"))})}),modalPreviewRow.addEventListener("click",e=>{var a,r;e.target&&e.target.classList.contains("modal-thumbnail-img")&&(a=e.target,r=carDetailsModal.querySelector(".modal-main-img").src,carDetailsModal.querySelector(".modal-main-img").src=e.target.src,a.src=r,modalPreviewRow.appendChild(a))}),filterSubmit.addEventListener("click",e=>{e.preventDefault();const a=document.getElementById("filterType").value,r=document.getElementById("filterDrive").value,l=document.getElementById("filterPriceMin").value,t=document.getElementById("filterPriceMax").value;e=cars.filter(e=>!(a&&e.type!==a||(r&&e.drive!==r||l&&e.price<Number(l)||t&&e.price>Number(t))));a||r||l||t?renderCars(e):renderCars(cars)}),modalFindDealer.forEach(e=>{e.addEventListener("click",()=>{let a={};var e=carDetailsModal.querySelector("#version-group .btn.active"),r=carDetailsModal.querySelector("#color-group .btn.active");a.model=carDetailsModal.querySelector('input[name="car_name"]').value,e&&(a.version=e.getAttribute("data-value")),r&&(a.colorName=r.getAttribute("data-color-name"),a.colorCode=r.getAttribute("data-color-code")),carDetailsModal.querySelectorAll("#accessories-group-row input:checked").forEach(e=>{a[e.id]=1}),a.price=carDetailsModal.querySelector("#modalPrice").getAttribute("data-price"),localStorage.setItem("carModal",JSON.stringify(a)),bootstrap.Modal.getInstance(carDetailsModal).hide(),console.log(a)})});
+			`;
+		});
+
+	} else {
+		carList.innerHTML += '<p class="fs-5 fw-bold text-center">Brak wyników</p>';
+
+	}
+
+}
+
+filterSubmit.addEventListener('click', (e) => {
+	e.preventDefault();
+	const type = document.getElementById('filterType').value;
+	const drive = document.getElementById('filterDrive').value;
+	const priceMin = document.getElementById('filterPriceMin').value;
+	const priceMax = document.getElementById('filterPriceMax').value;
+
+
+
+	const filtered = cars.filter(car => {
+		if (type && car.type !== type) return false;
+		if (drive && car.drive !== drive) return false;
+		if (priceMin && car.price < Number(priceMin)) return false;
+		if (priceMax && car.price > Number(priceMax)) return false;
+		return true;
+	});
+
+	if (!type && !drive && !priceMin && !priceMax) {
+		renderCars(cars);
+	} else {
+		renderCars(filtered);
+	}
+});
+
+modalFindDealer.forEach((e) => {
+	e.addEventListener('click', () => {
+		let dataToSave = {};		
+		const carVersion = carDetailsModal.querySelector('#version-group .btn.active');
+		const carColor = carDetailsModal.querySelector('#color-group .btn.active');
+		// const winterWheels = carDetailsModal.querySelector('#winter-wheels');
+		// const accessories = carDetailsModal.querySelector('#accessories');
+
+		dataToSave.model = carDetailsModal.querySelector('input[name="car_name"]').value;
+
+		if(carVersion){
+			dataToSave.version = carVersion.getAttribute('data-value');
+		}
+
+		if(carColor){
+			dataToSave.colorName = carColor.getAttribute('data-color-name');
+			dataToSave.colorCode = carColor.getAttribute('data-color-code');
+		}
+
+		carDetailsModal.querySelectorAll('#accessories-group-row input:checked').forEach((e) => {
+			dataToSave[e.id] = 1;
+		})
+
+
+		dataToSave.price = carDetailsModal.querySelector('#modalPrice').getAttribute('data-price');
+
+		localStorage.setItem("carModal", JSON.stringify(dataToSave));
+		const modal = bootstrap.Modal.getInstance(carDetailsModal);
+		modal.hide();
+
+		console.log(dataToSave);
+
+	});
+})

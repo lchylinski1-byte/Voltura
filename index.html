@@ -11,7 +11,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> 
-	<link rel="stylesheet" href="/css/main.css">  
+	<link rel="stylesheet" href="css/main.css">  
 
 </head>
 <body> 
@@ -20,207 +20,207 @@
 		<header class="header border-bottom">
 			<div class="header__wrapper container px-1 px-sm-0">				
 				<a href="#" class="header__logo">
-					<img src="/assets/img/logo.png" alt="" class="header__logo-img">
+					<img src="assets/img/logo.png" alt="" class="header__logo-img">
 					<p class="header__logo-text">Voltura Motors</p>
 				</a>
 				<a href="#" target="_blank" class="header__btn btn btn-green">Zaplanuj jazdę testową</a>
 			</div>
 		</header>
-<div class="page__content container px-1 px-sm-0">
-	<div class="main-section my-4">
-		<div class="main-section d-flex align-items-top flex-wrap rounded-4 border">
-			<div class="col-lg-6 col-md-12 px-2 pt-3 pb-0 pb-sm-4 px-sm-4">
-				<h2 class="main-section__title fs-2 fw-bold lh-1 mb-3">Moc spotyka efektywność</h2>
-				<p class="mb-3">
-					Odkryj nową linię Voltura e-Line – zaprojektowaną z myślą o mieście i długich trasach
-				</p>
-				<p class="main-section__text-secondary fs-6 fw-normal">
-					Voltura e-Line to zupełnie nowa generacja samochodów elektrycznych, łączących dynamiczne osiągi z wyjątkową energooszczędnością.
-				</p>
-				<p class="main-section__text-secondary fs-6 fw-normal">
-					Zaprojektowana w oparciu o najnowsze technologie, oferuje nie tylko imponujący zasięg, ale też komfort jazdy na najwyższym poziomie. Nowoczesne systemy wspomagania kierowcy sprawiają, że każda podróż staje się bezpieczniejsza i bardziej intuicyjna.
-				</p>
-				<p class="main-section__text-secondary fs-6 fw-normal">
-					Elegancka sylwetka i dopracowane detale nadwozia podkreślają charakter premium marki Voltura.
-				</p>
-				<a class="btn btn-blue mt-4 px-4 py-2 fw-bold" href="#">Sprawdź szczegóły</a>
-			</div>
-			<div class="col-lg-6 col-md-12 px-0 pb-0 pb-sm-4 py-4 px-sm-4">
-				<img src="assets/img/car.png" class="main-section__img img-fluid rounded-4"  alt="Voltura e-Line">
-			</div>
-		</div>
-	</div>
-
-
-	<section class="section-filters mb-3">
-		<h2 class="section-filters__title fs-3 fw-bold lh-1 mb-3">Gama naszych samochodów</h2>
-		<div class="card p-3 mb-4 border rounded-4">
-
-			<form id="filterForm" class="row g-3 align-items-end">
-				<div class="col-12 col-sm-auto">
-					<div class="d-flex align-items-center gap-2">
-						<label for="filterType" class="form-label mb-0 fw-normal">Typ</label>
-						<select class="form-select" id="filterType">
-							<option value="" label=" " selected></option>
-							<option value="suv">SUV</option>
-							<option value="kombi">Kombi</option>
-							<option value="sedan">Sedan</option>
-						</select>
-
+		<div class="page__content container px-1 px-sm-0">
+			<div class="main-section my-4">
+				<div class="main-section d-flex align-items-top flex-wrap rounded-4 border">
+					<div class="col-lg-6 col-md-12 px-2 pt-3 pb-0 pb-sm-4 px-sm-4">
+						<h2 class="main-section__title fs-2 fw-bold lh-1 mb-3">Moc spotyka efektywność</h2>
+						<p class="mb-3">
+							Odkryj nową linię Voltura e-Line – zaprojektowaną z myślą o mieście i długich trasach
+						</p>
+						<p class="main-section__text-secondary fs-6 fw-normal">
+							Voltura e-Line to zupełnie nowa generacja samochodów elektrycznych, łączących dynamiczne osiągi z wyjątkową energooszczędnością.
+						</p>
+						<p class="main-section__text-secondary fs-6 fw-normal">
+							Zaprojektowana w oparciu o najnowsze technologie, oferuje nie tylko imponujący zasięg, ale też komfort jazdy na najwyższym poziomie. Nowoczesne systemy wspomagania kierowcy sprawiają, że każda podróż staje się bezpieczniejsza i bardziej intuicyjna.
+						</p>
+						<p class="main-section__text-secondary fs-6 fw-normal">
+							Elegancka sylwetka i dopracowane detale nadwozia podkreślają charakter premium marki Voltura.
+						</p>
+						<a class="btn btn-blue mt-4 px-4 py-2 fw-bold" href="#">Sprawdź szczegóły</a>
 					</div>
-				</div>
-				<div class="col-12 col-sm-auto">
-					<div class="d-flex align-items-center gap-2">
-						<label for="filterDrive" class="form-label mb-0 fw-normal">Napęd</label>
-						<select class="form-select" id="filterDrive">
-							<option value="" label=" " selected></option>
-							<option value="electric">Elektryczny</option>
-							<option value="combustion">Spalinowy</option>
-							<option value="hybrid">Hybryda</option>
-						</select>
-					</div>
-				</div>
-				<div class="col-12 col-sm-auto">
-					<div class="d-flex align-items-center gap-2">
-						<label for="filterPriceMin" class="form-label mb-0 fw-normal">Cena</label>
-						<input type="text" class="form-control" id="filterPriceMin" placeholder="od">
-						<span class="mx-1">–</span>
-						<input type="text" class="form-control" id="filterPriceMax" placeholder="do">
-					</div>
-				</div>
-				<div class="col-12 col-sm-auto ms-auto">
-					<button id="filterSubmit" type="submit" class="btn btn-green px-5 py-2 fw-bold">Filtruj</button>
-				</div>
-			</form>
-		</div>
-	</section>
-
-
-	<section class="section-faq">
-		<div class="section-cars mb-md-4">
-			<div id="carList" class="row gx-0 gy-3 g-md-4 ">		    
-			</div>
-			<div class="card box-info my-5 p-4 p-sm-5 rounded-4 border-0" style="">
-				<div class="d-flex flex-wrap align-items-center justify-content-between">
-					<span class="fw-bold fs-5 text-white mb-3 mb-sm-4 mb-md-0">Poczuj przyszłość jazdy z Voltura.</span>
-					<a href="#" class="box-info__btn btn btn-light fw-bold">Umów się na jazdę próbną</a>
-				</div>
-			</div>
-		</div>
-		<h2 class="main-section__title fs-2 fw-bold lh-1 mb-3">Gama naszych produktów</h2>
-		<p class="mb-3">Voltura oferuje rozwiązania flotowe i korporacyjne, które łączą oszczędności z nowoczesnym wizerunkiem. Nasze samochody elektryczne sprawdzają się zarówno w dużych flotach, jak i w małych firmach, dla których liczy się ekonomia, niezawodność i troska o środowisko.</p>
-
-		<div class="accordion mb-5" id="carFaq">
-			<div class="accordion-item mb-3">
-				<h3 class="accordion-header" id="headingOne">
-					<button class="accordion-button fw-bold shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						Jakie korzyści daje flota elektryczna Voltura?
-					</button>
-				</h3>
-				<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" >
-					<div class="accordion-body pt-0 fw-regular lh-sm">
-						Niższe koszty eksploatacji, prosta obsługa serwisowa i wizerunek marki dbającej o środowisko.
-					</div>
-				</div>
-			</div>
-			<div class="accordion-item mb-3">
-				<h3 class="accordion-header" id="headingTwo">
-					<button class="accordion-button fw-bold shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-						Czy samochody Voltura sprawdzą się w trasach długodystansowych?
-					</button>
-				</h3>
-				<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" >
-					<div class="accordion-body pt-0 fw-regular lh-sm">
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, quibusdam sit.
-					</div>
-				</div>
-			</div>
-			<div class="accordion-item mb-3">
-				<h3 class="accordion-header" id="headingThree">
-					<button class="accordion-button fw-bold shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-						Jakie wsparcie serwisowe oferujecie dla flot?
-					</button>
-				</h3>
-				<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" >
-					<div class="accordion-body pt-0 fw-regular lh-sm">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, labore. Nisi rem minima molestiae laborum.
+					<div class="col-lg-6 col-md-12 px-0 pb-0 pb-sm-4 py-4 px-sm-4">
+						<img src="assets/img/car.png" class="main-section__img img-fluid rounded-4"  alt="Voltura e-Line">
 					</div>
 				</div>
 			</div>
 
 
+			<section class="section-filters mb-3">
+				<h2 class="section-filters__title fs-3 fw-bold lh-1 mb-3">Gama naszych samochodów</h2>
+				<div class="card p-3 mb-4 border rounded-4">
 
-
-		</div>
-		<div class="innovations-box rounded-4 p-2">
-			<div class="innovations-box__bg"></div>
-			<p class="fs-2 fw-bold">Postaw na innowację. Postaw na Volture.</p>
-		</div>
-	</section>
-</div>
-
-
-
-
-	<div class="modal modal-xl fade carDetailsModal" id="carDetailsModal" tabindex="-1" aria-labelledby="exampleModalLabel"  aria-modal="true" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<p class="modal-title fs-5 fw-bold" id="exampleModalLabel"></p>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<div class="row g-4">
-						<!-- Gallery/Main Image -->
-						<div id="modalGallery" class="col-lg-7">
-							<div id="modalMainImg">
-							</div>
-							<div class="d-flex gap-3 modal-preview-row">
+					<form id="filterForm" class="row g-3 align-items-end">
+						<div class="col-12 col-sm-auto">
+							<div class="d-flex align-items-center gap-2">
+								<label for="filterType" class="form-label mb-0 fw-normal">Typ</label>
+								<select class="form-select" id="filterType">
+									<option value="" label=" " selected></option>
+									<option value="suv">SUV</option>
+									<option value="kombi">Kombi</option>
+									<option value="sedan">Sedan</option>
+								</select>
 
 							</div>
 						</div>
-						<!-- Right panel: options & details -->
-						<div class="col-lg-5">
-							<div class="p-2 p-sm-3 border rounded-3 mb-2">
-								<div id="version-group" class="mb-2">
-									<p class="label fw-regular mb-2">Wersja</p>
-									<div class="btn-group w-100 g-1" role="group" data-bs-toggle="button">          
-									</div>
-								</div>
-								<div id="color-group" class="mb-2">
-									<p class="label fw-regular mb-2">Kolor</p>	              
-									<div class="btn-group w-100 d-flex gap-1" role="group" data-bs-toggle="button">
-									</div>
-								</div>
-								<div id="accessories-group" class="mb-2">
-									<p class="label fw-regular mb-2">Dodatki</p>
-									<div id="accessories-group-row" class="d-flex gap-2">      
-									</div>
-								</div>
-								<div class="mb-4">
-									<p class="label fw-regular mb-2">Cena</p>
-									<span id="modalPrice" class="fs-3 fw-bold text-dark"></span>
-								</div>
-								<button class="btn btn-green w-100 fw-bold py-2 modalFindDealer">Znajdź punkt sprzedaży</button>
-
+						<div class="col-12 col-sm-auto">
+							<div class="d-flex align-items-center gap-2">
+								<label for="filterDrive" class="form-label mb-0 fw-normal">Napęd</label>
+								<select class="form-select" id="filterDrive">
+									<option value="" label=" " selected></option>
+									<option value="electric">Elektryczny</option>
+									<option value="combustion">Spalinowy</option>
+									<option value="hybrid">Hybryda</option>
+								</select>
 							</div>
-							<section class="p-3 border rounded-3">
-								<h6 class="fw-bold mb-2">Kluczowe cechy</h6>
-								<hr>
-								<div id="car-desc">		              
-								</div>
-							</section>
+						</div>
+						<div class="col-12 col-sm-auto">
+							<div class="d-flex align-items-center gap-2">
+								<label for="filterPriceMin" class="form-label mb-0 fw-normal">Cena</label>
+								<input type="text" class="form-control" id="filterPriceMin" placeholder="od">
+								<span class="mx-1">–</span>
+								<input type="text" class="form-control" id="filterPriceMax" placeholder="do">
+							</div>
+						</div>
+						<div class="col-12 col-sm-auto ms-auto">
+							<button id="filterSubmit" type="submit" class="btn btn-green px-5 py-2 fw-bold">Filtruj</button>
+						</div>
+					</form>
+				</div>
+			</section>
 
+
+			<section class="section-faq">
+				<div class="section-cars mb-md-4">
+					<div id="carList" class="row gx-0 gy-3 g-md-4 ">		    
+					</div>
+					<div class="card box-info my-5 p-4 p-sm-5 rounded-4 border-0" style="">
+						<div class="d-flex flex-wrap align-items-center justify-content-between">
+							<span class="fw-bold fs-5 text-white mb-3 mb-sm-4 mb-md-0">Poczuj przyszłość jazdy z Voltura.</span>
+							<a href="#" class="box-info__btn btn btn-light fw-bold">Umów się na jazdę próbną</a>
 						</div>
 					</div>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-outline-secondary modal-close-btn" data-bs-dismiss="modal">Anuluj</button>
-					<button type="button" class="btn btn-blue modalFindDealer">Znajdz dealera</button>
+				<h2 class="main-section__title fs-2 fw-bold lh-1 mb-3">Gama naszych produktów</h2>
+				<p class="mb-3">Voltura oferuje rozwiązania flotowe i korporacyjne, które łączą oszczędności z nowoczesnym wizerunkiem. Nasze samochody elektryczne sprawdzają się zarówno w dużych flotach, jak i w małych firmach, dla których liczy się ekonomia, niezawodność i troska o środowisko.</p>
+
+				<div class="accordion mb-5" id="carFaq">
+					<div class="accordion-item mb-3">
+						<h3 class="accordion-header" id="headingOne">
+							<button class="accordion-button fw-bold shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								Jakie korzyści daje flota elektryczna Voltura?
+							</button>
+						</h3>
+						<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" >
+							<div class="accordion-body pt-0 fw-regular lh-sm">
+								Niższe koszty eksploatacji, prosta obsługa serwisowa i wizerunek marki dbającej o środowisko.
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item mb-3">
+						<h3 class="accordion-header" id="headingTwo">
+							<button class="accordion-button fw-bold shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+								Czy samochody Voltura sprawdzą się w trasach długodystansowych?
+							</button>
+						</h3>
+						<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" >
+							<div class="accordion-body pt-0 fw-regular lh-sm">
+								Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, quibusdam sit.
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item mb-3">
+						<h3 class="accordion-header" id="headingThree">
+							<button class="accordion-button fw-bold shadow-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+								Jakie wsparcie serwisowe oferujecie dla flot?
+							</button>
+						</h3>
+						<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" >
+							<div class="accordion-body pt-0 fw-regular lh-sm">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, labore. Nisi rem minima molestiae laborum.
+							</div>
+						</div>
+					</div>
+
+
+
+
+				</div>
+				<div class="innovations-box rounded-4 p-2">
+					<div class="innovations-box__bg"></div>
+					<p class="fs-2 fw-bold">Postaw na innowację. Postaw na Volture.</p>
+				</div>
+			</section>
+		</div>
+
+
+
+
+		<div class="modal modal-xl fade carDetailsModal" id="carDetailsModal" tabindex="-1" aria-labelledby="exampleModalLabel"  aria-modal="true" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<p class="modal-title fs-5 fw-bold" id="exampleModalLabel"></p>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="row g-4">
+							<!-- Gallery/Main Image -->
+							<div id="modalGallery" class="col-lg-7">
+								<div id="modalMainImg">
+								</div>
+								<div class="d-flex gap-3 modal-preview-row">
+
+								</div>
+							</div>
+							<!-- Right panel: options & details -->
+							<div class="col-lg-5">
+								<div class="p-2 p-sm-3 border rounded-3 mb-2">
+									<div id="version-group" class="mb-2">
+										<p class="label fw-regular mb-2">Wersja</p>
+										<div class="btn-group w-100 g-1" role="group" data-bs-toggle="button">          
+										</div>
+									</div>
+									<div id="color-group" class="mb-2">
+										<p class="label fw-regular mb-2">Kolor</p>	              
+										<div class="btn-group w-100 d-flex gap-1" role="group" data-bs-toggle="button">
+										</div>
+									</div>
+									<div id="accessories-group" class="mb-2">
+										<p class="label fw-regular mb-2">Dodatki</p>
+										<div id="accessories-group-row" class="d-flex gap-2">      
+										</div>
+									</div>
+									<div class="mb-4">
+										<p class="label fw-regular mb-2">Cena</p>
+										<span id="modalPrice" class="fs-3 fw-bold text-dark"></span>
+									</div>
+									<button class="btn btn-green w-100 fw-bold py-2 modalFindDealer">Znajdź punkt sprzedaży</button>
+
+								</div>
+								<section class="p-3 border rounded-3">
+									<h6 class="fw-bold mb-2">Kluczowe cechy</h6>
+									<hr>
+									<div id="car-desc">		              
+									</div>
+								</section>
+
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-outline-secondary modal-close-btn" data-bs-dismiss="modal">Anuluj</button>
+						<button type="button" class="btn btn-blue modalFindDealer">Znajdz dealera</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
 		<footer class="footer border-top">
 			<div class="footer__wrapper container px-1 px-sm-0">
@@ -229,6 +229,6 @@
 		</footer>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-	<script src="/js/app.js"></script>
+	<script src="js/app.js"></script>
 	</body>
  </html>
