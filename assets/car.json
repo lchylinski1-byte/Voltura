@@ -1,0 +1,132 @@
+{
+	"cars": [
+		{
+			"id": 1,
+			"model": "Voltura ZX 2025",
+			"price": "129999",
+			"range": "400",
+			"drive": "electric",
+			"type": "sedan",
+			"desc": [
+				{
+					"acceleration": "5.8s",
+					"top_speed": "210&nbsp;km/h",
+					"charging": "120 kW DC",
+					"boot_capacity": "520&nbsp;L",
+					"warranty": "5 lat"
+				}
+			],
+			"images": {
+				"main" : "car.png",
+				"additional" : [
+					"prev1.png",
+					"prev2.png",
+					"prev3.png"
+				]
+			},
+			"colors": [
+				{
+					"black": "#1F2937",
+					"gray": "#F3F4F6",
+					"green": "#28483B"
+				}
+			],
+			"version": [
+				"Podstawowy" ,
+				"Sport",
+				"Performance"
+			],
+			"accessories_available" : [
+				{
+					"winter_wheels" : "Koła zimowe",
+					"accessories" : "Akcesoria"        
+				}
+			]
+		},  
+		{
+			"id": 2,
+			"model": "Voltura PX 2025",
+			"price": "120999",
+			"range": "500",
+			"drive": "hybrid",
+			"type": "suv",
+			"desc": [
+				{
+					"acceleration": "6.8s",
+					"top_speed": "210&nbsp;km/h",
+					"charging": "100 kW DC",
+					"boot_capacity": "520&nbsp;L",
+					"warranty": "4 lat"
+				}
+			],
+			"images": {
+				"main" : "car.png",
+				"additional" : [
+					"prev1.png",
+					"prev2.png",
+					"prev3.png"
+				]
+			},
+			"colors": [
+				{
+					"black": "#1F2937",
+					"gray": "#F3F4F6",
+					"green": "#28483B"
+				}
+			],
+			"version": [
+				"Podstawowy",
+				"Sport",
+				"Performance"
+			],
+			"accessories_available" : [
+				{
+					"winter_wheels" : "Koła zimowe"      
+				}
+			]
+		},  
+		{
+			"id": 3,
+			"model": "Voltura SX 2025",
+			"price": "99999",
+			"range": "300",
+			"drive": "combustion",
+			"type": "kombi",
+			"desc": [
+				{
+					"acceleration": "10.8s",
+					"top_speed": "210&nbsp;km/h",
+					"charging": "190 kW DC",
+					"boot_capacity": "520&nbsp;L",
+					"warranty": "15 lat"
+				}
+			],
+			"images": {
+				"main" : "car.png",
+				"additional" : [
+					"prev1.png",
+					"prev2.png",
+					"prev3.png"
+				]
+			},
+			"colors": [
+				{
+					"black": "#1F2937",
+					"gray": "#F3F4F6",
+					"green": "#28483B"
+				}
+			],
+			"version": [
+				"Podstawowy",
+				"Sport",
+				"Performance"
+			],
+			"accessories_available" : [
+				{
+					"winter_wheels" : "Koła zimowe",
+					"accessories" : "Akcesoria"        
+				}
+			]
+		}
+	]
+}

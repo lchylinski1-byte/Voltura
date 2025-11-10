@@ -1,0 +1,497 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1;
+}
+
+p {
+  line-height: 1.4;
+}
+
+input, select, textarea {
+  outline: none;
+  outline-style: none;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+:root {
+  --colors-main-green: #28483B;
+  --colors-main-green-hover: #3e715c;
+  --colors-text-black: #0B1E40;
+  --colors-text-gray: #6B7280;
+  --colors-btn-blue: #123C82;
+  --colors-btn-blue-hover: #194ea7;
+  --colors-dark-blue: #0B1E40;
+  --colors-white: #fff;
+  --colors-black: #000;
+  --colors-bg-gray: #F7F9FC;
+}
+
+.btn.btn-green {
+  background-color: var(--colors-main-green);
+  color: var(--colors-white);
+  font-size: 14px;
+  font-weight: bold;
+  -webkit-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+
+@media (hover: hover) {
+  .btn.btn-green:hover {
+    background-color: var(--colors-main-green-hover) !important;
+    color: var(--colors-white) !important;
+  }
+}
+
+.btn.btn-green:focus, .btn.btn-green:focus-visible, .btn.btn-green:active {
+  background-color: var(--colors-main-green-hover) !important;
+  color: var(--colors-white) !important;
+}
+
+.btn.btn-blue {
+  background-color: var(--colors-btn-blue);
+  color: var(--colors-white);
+  font-size: 14px;
+  -webkit-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+
+@media (hover: hover) {
+  .btn.btn-blue:hover {
+    background-color: var(--colors-btn-blue-hover) !important;
+    color: var(--colors-white) !important;
+  }
+}
+
+.btn.btn-blue:focus, .btn.btn-blue:focus-visible, .btn.btn-blue:active {
+  background-color: var(--colors-btn-blue-hover) !important;
+  color: var(--colors-white) !important;
+}
+
+.btn-transparent {
+  background-color: transparent;
+  border-color: #E5E7EB;
+  color: var(--colors-text-black);
+  font-size: 13px;
+  -webkit-transition: background 0.2s ease, border 0.2s ease;
+  transition: background 0.2s ease, border 0.2s ease;
+}
+
+.btn-transparent:hover {
+  border-color: #E5E7EB !important;
+}
+
+@media (hover: hover) {
+  .btn-transparent:hover {
+    border-color: #E5E7EB !important;
+  }
+  .btn-transparent:hover:not(.active) {
+    border-color: var(--colors-btn-blue) !important;
+  }
+}
+
+.btn-transparent:has(input:checked), .btn-transparent.active {
+  background-color: var(--colors-btn-blue) !important;
+  border-color: var(--colors-btn-blue) !important;
+  color: var(--colors-white) !important;
+}
+
+body {
+  background-color: var(--colors-bg-gray);
+}
+
+body * {
+  font-family: 'Inter', sans-serif;
+}
+
+.header {
+  width: 100%;
+  background-color: var(--colors-white);
+}
+
+.header__wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 14px 0;
+}
+
+.header__logo {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+}
+
+.header__logo-img {
+  width: 41px;
+  height: auto;
+}
+
+.header__logo-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--colors-dark-blue);
+}
+
+@media screen and (max-width: 400px) {
+  .header__logo-text {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .header__btn {
+    font-size: 12px;
+  }
+}
+
+.main-section__img {
+  display: block;
+}
+
+.main-section__title {
+  color: var(--colors-text-black);
+}
+
+.main-section__text-secondary {
+  color: var(--colors-text-gray);
+}
+
+.section-filters {
+  margin-top: 40px;
+}
+
+.section-filters__title {
+  color: var(--colors-text-black);
+}
+
+.section-filters input {
+  font-size: 14px;
+}
+
+.section-filters input#filterPriceMin, .section-filters input#filterPriceMax {
+  max-width: 90px;
+  height: 36px;
+}
+
+@media screen and (max-width: 576px) {
+  .section-filters input#filterPriceMin, .section-filters input#filterPriceMax {
+    max-width: 100px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .section-filters input#filterPriceMin {
+    margin-left: -.5rem;
+  }
+}
+
+.section-filters select#filterType, .section-filters select#filterDrive {
+  max-width: 160px;
+  height: 36px;
+}
+
+@media screen and (max-width: 576px) {
+  .section-filters select#filterType, .section-filters select#filterDrive {
+    max-width: calc(100% - 60px);
+  }
+}
+
+.section-filters label {
+  font-size: 14px;
+  color: var(--colors-text-gray);
+}
+
+@media screen and (max-width: 576px) {
+  .section-filters label {
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .section-filters .btn {
+    width: 100%;
+  }
+}
+
+.section-cars .card__title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.section-cars .card__price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.section-cars .card__desc {
+  color: var(--colors-text-gray);
+  font-size: 13px;
+}
+
+.section-cars .card__btn {
+  font-size: 12px;
+}
+
+.box-info {
+  height: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: var(--colors-btn-blue);
+}
+
+.box-info__btn {
+  color: var(--colors-btn-blue);
+}
+
+.section-faq .accordion .accordion-item {
+  border-radius: 8px;
+  background-color: #E5E7EB;
+  -webkit-transition: background 0.2s ease;
+  transition: background 0.2s ease;
+}
+
+.section-faq .accordion .accordion-item:has(.accordion-button:not(.collapsed)) {
+  border: 1px solid var(--colors-text-gray);
+  background-color: var(--colors-white);
+}
+
+.section-faq .accordion .accordion-button {
+  color: #1e1e1e;
+  outline: none;
+  border-radius: 8px;
+  background-color: transparent;
+  line-height: 1.3;
+}
+
+.section-faq .accordion .accordion-button:after {
+  margin-left: 5px;
+}
+
+.section-faq .accordion .accordion-body {
+  background-color: transparent;
+  color: #1e1e1e;
+  border-radius: 0 0 8px 8px;
+}
+
+.innovations-box {
+  width: 100%;
+  aspect-ratio: 1200/295;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .innovations-box {
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .innovations-box {
+    height: 140px;
+  }
+}
+
+.innovations-box__bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-image: url("../assets/img/Vector.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.innovations-box p {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.footer {
+  background-color: var(--colors-white);
+}
+
+.footer__wrapper {
+  color: #6B7280;
+  padding: 36px 0 27px;
+}
+
+@media screen and (max-width: 400px) {
+  .footer__wrapper {
+    padding: 25px 0;
+  }
+}
+
+.carDetailsModal .modal-close-btn {
+  font-size: 14px;
+}
+
+.carDetailsModal .modal-body .modal-main-img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 280px;
+}
+
+@media screen and (min-width: 576px) {
+  .carDetailsModal .modal-body .modal-main-img {
+    height: 300px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .carDetailsModal .modal-body .modal-main-img {
+    height: 372px;
+  }
+}
+
+.carDetailsModal .modal-body .modal-thumbnail-img {
+  width: 200px;
+  height: 120px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.carDetailsModal .modal-body .modal-thumbnail-img.clone {
+  display: none;
+}
+
+.carDetailsModal .modal-body .modal-preview-row {
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+.carDetailsModal .modal-body .modal-preview-row img {
+  cursor: pointer;
+}
+
+.carDetailsModal .modal-body .label {
+  color: var(--colors-text-gray);
+  font-size: 14px;
+}
+
+.carDetailsModal .modal-body .color-box {
+  width: 28px;
+  aspect-ratio: 1;
+  border-radius: 6px;
+  -webkit-box-flex: unset;
+      -ms-flex: unset;
+          flex: unset;
+}
+
+.carDetailsModal .modal-body .color-box#color-1 {
+  background-color: #1F2937;
+}
+
+.carDetailsModal .modal-body .color-box#color-2 {
+  background-color: #F3F4F6;
+  border: 1px solid #E5E7EB;
+}
+
+.carDetailsModal .modal-body .color-box#color-3 {
+  background-color: var(--colors-main-green);
+}
+
+.carDetailsModal .modal-body hr {
+  background-color: #E5E7EB;
+}
+
+.carDetailsModal .modal-body .desc-label {
+  font-size: 14px;
+  color: var(--colors-text-gray);
+}
+
+.carDetailsModal .modal-body .desc-val {
+  font-size: 14px;
+  color: var(--colors-text-black);
+}
